@@ -25,3 +25,4 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+\congig\local_env.yml
