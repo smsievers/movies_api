@@ -1,6 +1,6 @@
 class Api::v1::MoviesController < ApplicationController
     before_action :set_movie, only [:show, :update, :destroy]
-    skip_before action name :authenticate, only: [:index, :show]
+    skip_before_action :authenticate, only: [:index, :show]
 
     def index
         @movies = Movie.all
@@ -23,9 +23,9 @@ class Api::v1::MoviesController < ApplicationController
 
     def update
         if @movie.update(movie_params)
-            render json: @movie
+            render json: @movie, status: :ok
         else
-            render json: @movie.errors. status: :unprocessable_entity
+            render json: @movie.errors, status: :unprocessable_entity
         end
     end
 
