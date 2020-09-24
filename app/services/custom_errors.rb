@@ -29,8 +29,8 @@ class CustomError
     def convert(errors)
         class_type = errors.class.to_s
         messages = []
-        messages = errors.full_messages if class_type = 'ActiveModel:Errors'
-        messages = errors if class_type = 'Array'
+        messages = errors.full_messages if class_type == 'ActiveModel:Errors'
+        messages = errors if class_type == 'Array'
         messages = errors&.errors&.full_messages || [] unless class_type.in?(%w[Array ActiveModel::Errors])
         messages.each { |error| @errors << error }
         self

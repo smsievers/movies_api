@@ -13,9 +13,7 @@ class UsersService
             nickname: nickname,
             password: password,
             password_confirmation: password_confirmation
-            }
-            )
-
+            })
         return false unless user.valid?
         user.save
         user.generate_token!
