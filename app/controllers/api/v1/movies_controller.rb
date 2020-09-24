@@ -1,4 +1,4 @@
-class Api::v1::MoviesController < ApplicationController
+class Api::V1::MoviesController < ApplicationController
     before_action :set_movie, only: [:show, :update, :destroy]
     skip_before_action :authenticate, only: [:index, :show]
 
@@ -45,7 +45,8 @@ class Api::v1::MoviesController < ApplicationController
         end
 
         def movie_params
-            params.require(:movie).permit[ :title, :description, :parental_rating, :year, :total_gross, :duration, :image, :cast, :director]
+            params.require(:movie).permit(:title, :description,
+                :parental_rating, :year, :total_gross, :duration, :image, :cast, :director)
         end 
 
 end
