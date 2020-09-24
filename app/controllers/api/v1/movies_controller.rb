@@ -36,7 +36,7 @@ class Api::v1::MoviesController < ApplicationController
     def get_upload_credentials
         @accesskey = ENV['S3_ACCESS']
         @secretkey = ENV['S3_SECRET']
-        render json: accesskey: @accesskey, secretkey: @secretkey
+        render json: {accesskey: @accesskey, secretkey: @secretkey}
     end
 
     private 
